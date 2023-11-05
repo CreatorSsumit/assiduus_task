@@ -1,0 +1,67 @@
+.dashboard{
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.card_section{
+    background: white;
+    height: 53%;
+    width: 100%;
+    border-radius: 7px;
+    margin: 10px;
+    position: relative;
+    overflow: hidden;
+}
+
+.cards_top_section{
+ width: 100%;
+ display: flex;
+ justify-content: space-between;
+ align-items: center;
+ padding: 10px 20px;
+ border-bottom: 1px solid gray;
+ font-weight: 600;
+}
+
+ .checkbox_item_1 .ant-checkbox-inner{
+    background-color: #02BB7D !important;
+}
+.checkbox_item_2 .ant-checkbox-inner{
+    background-color: #48B748 !important;
+}
+
+
+
+.svg{
+    /* /* position: absolute; */
+    /* padding: 10px 20px;  */
+    width: 100%;
+     height:100%; 
+    /* background-color: bisque; */
+    display: block;
+    overflow: visible;
+}
+
+.table_content{
+    height: 9vh;
+    /* width: 100%;
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+    display: b; */
+}
+
+.ant-table-cell{
+    background-color: white !important;
+    color: gray !important;
+}
+.ant-table-tbody .ant-table-cell{
+    color: black !important;
+    font-weight: 600;
+}
+
+
+
+
+

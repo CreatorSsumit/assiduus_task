@@ -1,0 +1,30 @@
+.headerrow{
+    padding:11px;
+   flex-wrap: nowrap;
+}
+.search{
+    width:20%;
+    border:2px solid #F5F6F9
+}
+.search:hover{
+    border:2px solid #47B747
+}
+
+.demo-logo-header{
+    display: none;
+    width: 200px;
+    margin-right: 20px;
+    background-image: url('https://aetoswire.com/storage/clients/client-5342/1607944212.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .demo-logo-header{
+        display: initial;
+    }
+    .search{
+        width: 90%;
+    }
+  }

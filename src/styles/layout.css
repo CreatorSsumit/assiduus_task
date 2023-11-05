@@ -1,0 +1,34 @@
+.layout{
+    min-height: 100vh;
+    position: relative;
+    background-color: #F5F6F9;
+}
+
+.navigationmenu{
+    width: 100%;
+    height: 100%;
+    position:fixed;
+}
+
+.demo-logo-vertical{
+    background-image: url('https://aetoswire.com/storage/clients/client-5342/1607944212.jpg');
+    background-color: #F5F6F9;
+    background-size: cover;
+    background-position: center;
+    height: 60px;
+
+}
+
+.dashboardContent{
+    height: 100% !important;
+    position: relative;
+    padding: 10px;
+}
+.ant-menu-item:hover{
+    background-color: #d7e5d7!important;
+    color: #000 !important;
+}
+.ant-menu-light .ant-menu-item-selected{
+    background-color: #47B747;
+    color: white;
+}
