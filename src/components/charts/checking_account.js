@@ -2,12 +2,31 @@ import { axisBottom,  axisLeft,  axisRight,  curveCardinal,  line, scaleLinear, 
 import React, { useEffect, useRef, useState } from 'react'
 import { useResizeObserver } from './useResizeObserver'
 
-function Checking_account() {
- const [data, setdata] = useState([9,90,85,22,30,40,55,36,47,38])
+function Checking_account(props) {
+  
+
+ const [data, setData] = useState([])
  const svgRef = useRef()
  const wrapperRef = useRef();
  const dimention = useResizeObserver(wrapperRef)
 
+
+ useEffect(() => {
+  getDataByMonth()
+ }, [props])
+ 
+
+
+ const getDataByMonth = () => {
+  let filteredValues = props?.data?.reduce((acc, e) => {
+    if (new Date(e.date).toLocaleDateString('en-US', { month: 'short' }) === props?.selectedMonth) {
+      acc.push(e.value);
+    }
+    return acc;
+  }, []);
+
+  setData(filteredValues)
+}
 
 
 

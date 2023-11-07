@@ -6,11 +6,15 @@ import InvoiceOwn from '../charts/invoice_own'
 import AmountInOut from "../charts/amount_in_out"
 import AccountWishlist from '../charts/account_wishlist'
 import { UploadOutlined } from '@ant-design/icons';
+import { dataSet } from "./dataset"
 
 
 function Index() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [data, setData] = useState(dataSet)
+  const [selectedMonth,setSelectedMonth] = useState(new Date().toLocaleDateString('en-US', { month: 'short' }))
+
   const showModal = () => {
     setIsModalOpen(true);
   };
@@ -21,6 +25,40 @@ function Index() {
     setIsModalOpen(false);
   };
 
+
+  function removeDuplicates(array) {
+    const seen = new Set();
+    return array.filter((obj) => {
+      const objString = JSON.stringify(obj);
+      if (!seen.has(objString)) {
+        seen.add(objString);
+        return true;
+      }
+      return false;
+    });
+  }
+
+
+  const getMonthInOption = ()=>{
+
+   let temp =  data.map(e=>{
+       let MonthinStringLong =  new Date(e.date).toLocaleDateString('en-US', { month: 'long' });
+       let MonthinStringShort =  new Date(e.date).toLocaleDateString('en-US', { month: 'short' })
+       return {
+        value: MonthinStringShort,
+        label: MonthinStringLong,
+       }  
+   })
+
+   return removeDuplicates(temp)
+  }
+
+
+  const onChangeMonth=(e)=>{
+  setSelectedMonth(e)
+  }
+
+  
   return (
    <Row className='dashboard' justify={'space-evenly'} >
     <Col  className='card_section' md={11} span={23}>
@@ -38,17 +76,15 @@ function Index() {
     />
     &nbsp;
      <Select
-      defaultValue="jan"
-      options={[
-        {
-          value: 'jan',
-          label: 'January',
-        },
-      ]}
+      defaultValue={selectedMonth}
+      value={selectedMonth}
+      style={{width:120}}
+      options={getMonthInOption()}
+      onChange={onChangeMonth}
     />
        </Row>
       </div>
-      <CheckingAccount />
+      <CheckingAccount data={data} selectedMonth={selectedMonth}  />
     </Col>
     <Col  className='card_section' md={11} span={23}>
     <div className='cards_top_section'>
